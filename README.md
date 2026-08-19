@@ -1,59 +1,84 @@
-# Sistema de Catálogo y Tienda Online (Museo)
+# 🛒 Tienda Online — Flask + PostgreSQL
 
-Aplicación web desarrollada en Python con **Flask**, **SQLAlchemy** y **PostgreSQL**. Permite administrar un catálogo de productos con soporte para imágenes, autenticación con roles de usuario (Administrador y Cliente) y gestión de carrito de compras.
+Proyecto final que implementa una plataforma de comercio electrónico orientada a objetos con Flask y PostgreSQL. El sistema gestiona un catálogo con tres tipos de productos mediante herencia, control de acceso por roles (Administrador y Cliente), persistencia en sesión para el carrito de compras y gestión de imágenes para cada producto.
 
----
-
-## 🚀 Requisitos previos
-- Python 3.x
-- PostgreSQL en ejecución
+**Autor:** Derek Moreno  
+**Materia:** Programación Orientada a Objetos (POO)  
+**Paralelo:** P4  
 
 ---
 
-## 🛠️ Instalación y Configuración
+## 🛠️ Tecnologías Utilizadas
 
-1. **Clonar el repositorio o descargar el proyecto:**
-   ```bash
-   git clone <URL_DE_TU_REPOSITORIO>
-   cd Museo
-Crear y activar el entorno virtual:
+* **Lenguaje:** Python 3.x
+* **Framework Web:** Flask
+* **Base de Datos:** PostgreSQL
+* **ORM:** SQLAlchemy
+* **Estilos:** Bootstrap 5
+
+---
+
+## 🚀 Instrucciones de Instalación y Ejecución
+
+Sigue estos pasos para levantar el proyecto localmente:
+
+### 1. Clonar el repositorio e ingresar a la carpeta
+```bash
+git clone [https://github.com/Fy-hub-lab/tienda_online.git](https://github.com/Fy-hub-lab/tienda_online.git)
+cd tienda_online
+2. Crear y activar el entorno virtual
+Linux/macOS:
 
 Bash
-python -m venv venv
-# En Windows:
-venv\Scripts\activate
-# En macOS/Linux:
+python3 -m venv venv
 source venv/bin/activate
-Instalar dependencias:
+Windows:
 
+DOS
+python -m venv venv
+venv\Scripts\activate
+3. Instalar las dependencias
 Bash
 pip install -r requirements.txt
-Configurar variables de entorno:
-Crea un archivo .env en la raíz con tus credenciales de PostgreSQL:
+4. Configurar las variables de entorno (.env)
+Crea un archivo llamado .env en la raíz del proyecto con el siguiente contenido:
 
 Fragmento de código
-DATABASE_URL=postgresql://usuario:contraseña@localhost:5432/nombre_bd
-SECRET_KEY=tu_clave_secreta
-Inicializar la base de datos:
-
+SECRET_KEY=clave_secreta_para_sesiones
+DATABASE_URL=postgresql://postgres:tu_contraseña@localhost:5432/tienda_online
+5. Inicializar la base de datos y ejecutar la aplicación
 Bash
 python init_db.py
-Ejecutar la aplicación:
-
-Bash
 python app.py
-Accede desde tu navegador a: http://127.0.0.1:5000
+Abre tu navegador e ingresa a: http://127.0.0.1:5000
 
-🔑 Credenciales de Prueba
-Rol	Correo / Usuario	Contraseña
-Administrador	admin@ejemplo.com	admin123
-Cliente	cliente@ejemplo.com	cliente123
-📦 Características Principales
-Gestión de Productos: Creación de productos físicos, digitales y perecibles con subida de imágenes.
+🔐 Credenciales de Prueba
+Para probar el control de roles y permisos del sistema:
 
-Seguridad por Roles: Vistas y endpoints protegidos mediante decoradores @login_requerido y @rol_requerido.
+Cuenta Administrador (Acceso a la creación, edición, desactivación de productos y subida de imágenes)
 
-Carrito de Compras: Funcionalidad de sesión para agregar y gestionar productos seleccionados por los clientes.
+Correo: admin@tienda.com
+
+Contraseña: admin123
+
+Cuenta Cliente (Acceso a la visualización del catálogo y adición de ítems al carrito)
+
+Correo: cliente@tienda.com
+
+Contraseña: cliente123
+
+📸 Capturas de Pantalla
+1. Catálogo de Productos
+(Sustituye esta ruta o añade la captura correspondiente al catálogo de la aplicación)
+
+2. Detalle de Producto
+(Sustituye esta ruta o añade la captura correspondiente a la vista detallada)
+
+3. Carrito de Compras
+(Sustituye esta ruta o añade la captura correspondiente a la vista del carrito)
 
 
-Pégalos en sus respectivos archivos, guarda los cambios con `Ctrl + S` y procede a realizar tu commit.
+***
+
+**Notas finales antes del push:**
+* Puedes reemplazar la ruta de las imágenes `static/uploads/default.png` con la ubicación real de tus capturas (por ejemplo, gua
