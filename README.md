@@ -69,13 +69,16 @@ Contraseña: cliente123
 
 📸 Capturas de Pantalla
 1. Catálogo de Productos
-(Sustituye esta ruta o añade la captura correspondiente al catálogo de la aplicación)
+Captura1.PNG
 
 2. Detalle de Producto
-(Sustituye esta ruta o añade la captura correspondiente a la vista detallada)
+Captura2.PNG
 
 3. Carrito de Compras
-(Sustituye esta ruta o añade la captura correspondiente a la vista del carrito)
+Captura3.PNG
+
+4. Carrito de Compras con valor
+Captura4.PNG
 
 
 ***
