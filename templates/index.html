@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block titulo %}Catálogo — Tienda Online{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Catálogo de Productos</h1>
+
+    <div class="row">
+        {% for producto in productos %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <!-- Imagen del Producto -->
+                <img src="{{ url_for('static', filename='uploads/' + (producto.imagen_url if producto.imagen_url else 'default.png')) }}" 
+                     class="card-img-top object-fit-cover" 
+                     alt="{{ producto.nombre }}"
+                     style="height: 200px; object-fit: cover;">
+
+                <div class="card-body d-flex flex-column">
+                    <span class="badge bg-secondary mb-2 align-self-start">{{ producto.tipo }}</span>
+                    <h5 class="card-title">{{ producto.nombre }}</h5>
+                    <p class="card-text text-muted mb-1">Código: {{ producto.codigo }}</p>
+                    <p class="card-text fs-4 fw-bold text-success mb-3">
+                        ${{ "%.2f"|format(producto.precio_final()) }}
+                    </p>
+
+                    <div class="mt-auto d-flex gap-2">
+                        <a href="{{ url_for('detalle_producto', producto_id=producto.id) }}"
+                           class="btn btn-outline-primary flex-fill">
+                           Ver detalle
+                        </a>
+
+                        <!-- Botón para Agregar al Carrito (Solo visible para rol cliente) -->
+                        {% if session.get('usuario_rol') == 'cliente' %}
+                        <form action="{{ url_for('agregar_al_carrito', producto_id=producto.id) }}" method="POST">
+                            <button type="submit" class="btn btn-success">
+                                🛍️ Agregar
+                            </button>
+                        </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-12">
+            <p class="text-center text-muted">No hay productos disponibles todavía.</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
